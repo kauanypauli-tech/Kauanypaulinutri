@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kauany Pauli — Nutricionista | Emagrecimento com estratégia</title>
+<meta name="description" content="Acompanhamento nutricional de verdade para emagrecer e definir com estratégia. Plano alimentar adaptado à sua rotina, sem restrição e sem complicação. Online ou presencial em Sinop/MT.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF7F2;
+    --bg-soft: #F2EDE4;
+    --ink: #2B2620;
+    --ink-soft: #6B635A;
+    --accent: #7A8B6F;
+    --accent-dark: #5C6B53;
+    --line: #E3DCD1;
+    --white: #FFFFFF;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:400; line-height:1.2; }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+
+  .container{ max-width:1080px; margin:0 auto; padding:0 24px; }
+
+  /* ---------- Header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(250,247,242,.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-size:1.15rem; letter-spacing:.02em;
+  }
+  .logo span{ color:var(--accent-dark); font-style:italic; }
+  .nav-links{ display:flex; gap:32px; align-items:center; }
+  .nav-links a{
+    font-size:.8rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--ink-soft); transition:color .3s;
+  }
+  .nav-links a:hover{ color:var(--ink); }
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:14px 32px; border-radius:100px;
+    font-size:.85rem; font-weight:500; letter-spacing:.05em;
+    background:var(--accent-dark); color:var(--white);
+    transition:background .3s, transform .3s;
+    border:none; cursor:pointer;
+  }
+  .btn:hover{ background:var(--accent); transform:translateY(-2px); }
+  .btn-ghost{
+    background:transparent; color:var(--ink);
+    border:1px solid var(--ink);
+  }
+  .btn-ghost:hover{ background:var(--ink); color:var(--bg); }
+  .nav .btn{ padding:10px 24px; }
+  @media(max-width:720px){ .nav-links a:not(.btn){ display:none; } }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex; align-items:center;
+    padding:120px 0 80px;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(122,139,111,.12), transparent),
+      radial-gradient(ellipse 50% 40% at 10% 90%, rgba(122,139,111,.08), transparent),
+      var(--bg);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr .85fr; gap:64px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:.75rem; text-transform:uppercase; letter-spacing:.2em;
+    color:var(--accent-dark); margin-bottom:28px;
+  }
+  .eyebrow::before{ content:""; width:32px; height:1px; background:var(--accent-dark); }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    margin-bottom:28px;
+  }
+  .hero h1 em{ font-style:italic; color:var(--accent-dark); }
+  .hero p.lead{
+    font-size:1.1rem; color:var(--ink-soft); max-width:520px; margin-bottom:40px;
+  }
+  .hero-cta{ display:flex; gap:16px; flex-wrap:wrap; }
+
+  .hero-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:40px 36px;
+    box-shadow:0 24px 60px -30px rgba(43,38,32,.18);
+  }
+  .hero-card h3{ font-size:1.3rem; margin-bottom:20px; }
+  .hero-card ul{ list-style:none; }
+  .hero-card li{
+    display:flex; gap:14px; padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:.95rem; color:var(--ink-soft);
+  }
+  .hero-card li:last-child{ border-bottom:none; }
+  .hero-card li::before{
+    content:""; flex:none; width:8px; height:8px; border-radius:50%;
+    background:var(--accent); margin-top:9px;
+  }
+  @media(max-width:880px){
+    .hero-grid{ grid-template-columns:1fr; gap:48px; }
+    .hero{ padding-top:110px; }
+  }
+
+  /* ---------- Sections ---------- */
+  section{ padding:110px 0; }
+  .section-label{
+    font-size:.75rem; text-transform:uppercase; letter-spacing:.2em;
+    color:var(--accent-dark); margin-bottom:16px;
+  }
+  .section-title{
+    font-size:clamp(1.8rem, 3.5vw, 2.6rem); max-width:640px; margin-bottom:20px;
+  }
+  .section-sub{ color:var(--ink-soft); max-width:560px; font-size:1.05rem; }
+
+  /* Método */
+  .method{ background:var(--bg-soft); }
+  .method-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:2px; background:var(--line); border:1px solid var(--line); margin-top:56px; }
+  .method-item{
+    background:var(--bg-soft); padding:44px 40px;
+    transition:background .3s;
+  }
+  .method-item:hover{ background:var(--white); }
+  .method-item .num{
+    font-family:'Fraunces', serif; font-style:italic; font-size:.95rem;
+    color:var(--accent-dark); display:block; margin-bottom:14px;
+  }
+  .method-item h3{ font-size:1.35rem; margin-bottom:12px; }
+  .method-item p{ color:var(--ink-soft); font-size:.95rem; }
+  @media(max-width:720px){ .method-grid{ grid-template-columns:1fr; } }
+
+  /* Para quem é */
+  .fit-list{ margin-top:56px; display:grid; gap:0; }
+  .fit-item{
+    display:flex; gap:24px; align-items:flex-start;
+    padding:32px 0; border-bottom:1px solid var(--line);
+  }
+  .fit-item:last-child{ border-bottom:none; }
+  .fit-check{
+    flex:none; width:36px; height:36px; border-radius:50%;
+    border:1px solid var(--accent-dark);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--accent-dark); font-size:.9rem; margin-top:2px;
+  }
+  .fit-item h3{ font-size:1.15rem; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:500; }
+  .fit-item p{ color:var(--ink-soft); font-size:.95rem; }
+
+  /* CTA */
+  .cta{
+    background:var(--ink); color:var(--bg); text-align:center;
+    padding:130px 0;
+  }
+  .cta .section-label{ color:#A8B79C; }
+  .cta h2{ font-size:clamp(2rem, 4.5vw, 3.2rem); max-width:720px; margin:0 auto 24px; }
+  .cta h2 em{ font-style:italic; color:#A8B79C; }
+  .cta p{ color:rgba(250,247,242,.65); max-width:520px; margin:0 auto 44px; }
+  .cta .btn{ background:var(--bg); color:var(--ink); padding:18px 44px; font-size:.9rem; }
+  .cta .btn:hover{ background:#A8B79C; color:var(--ink); }
+
+  /* Contato */
+  .contact-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+  .contact-card{
+    border:1px solid var(--line); border-radius:20px; padding:36px 30px;
+    background:var(--white); text-align:center;
+    transition:transform .3s, box-shadow .3s;
+  }
+  .contact-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -24px rgba(43,38,32,.2); }
+  .contact-card .icon{ font-size:1.4rem; margin-bottom:14px; }
+  .contact-card h3{ font-size:1.05rem; margin-bottom:6px; font-family:'Inter',sans-serif; font-weight:500; }
+  .contact-card p{ font-size:.9rem; color:var(--ink-soft); word-break:break-all; }
+  @media(max-width:720px){ .contact-grid{ grid-template-columns:1fr; } }
+
+  footer{
+    padding:40px 0; text-align:center;
+    font-size:.8rem; color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+
+  /* Reveal animation */
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.visible{ opacity:1; transform:none; }
+  @media(prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#inicio" class="logo">Kauany <span>Pauli</span></a>
+    <nav class="nav-links">
+      <a href="#metodo">Método</a>
+      <a href="#para-quem">Para quem é</a>
+      <a href="#contato">Contato</a>
+      <a class="btn" href="https://wa.me/5566992292184?text=Ol%C3%A1%2C%20Kauany!%20Quero%20saber%20mais%20sobre%20o%20acompanhamento%20nutricional." target="_blank" rel="noopener">Agendar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <span class="eyebrow">Nutricionista · Online e presencial em Sinop/MT</span>
+      <h1>Emagrecer e definir <em>com estratégia</em>, não com restrição.</h1>
+      <p class="lead">Tenha acesso a um acompanhamento de verdade. Transforme a dificuldade de manter a dieta em constância e resultado, com um plano totalmente adaptado à sua rotina — sem restrição e sem complicação.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://wa.me/5566992292184?text=Ol%C3%A1%2C%20Kauany!%20Quero%20saber%20mais%20sobre%20o%20acompanhamento%20nutricional." target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+        <a class="btn-ghost btn" href="#metodo">Conhecer o acompanhamento</a>
+      </div>
+    </div>
+    <div class="hero-card reveal">
+      <h3>O que você recebe no acompanhamento</h3>
+      <ul>
+        <li>Plano alimentar adaptado à sua rotina — nada engessado ou impossível de seguir</li>
+        <li>Avaliação física, exames e suplementação individualizada</li>
+        <li>Aplicativo exclusivo com seu plano na palma da mão</li>
+        <li>Suporte direto com a nutri pelo WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÉTODO ============ -->
+<section class="method" id="metodo">
+  <div class="container">
+    <span class="section-label reveal">O acompanhamento</span>
+    <h2 class="section-title reveal">Não é só mais um cardápio pronto.</h2>
+    <p class="section-sub reveal">É direção, suporte e ajustes ao longo de todo o processo — para o resultado sair do papel e se manter.</p>
+
+    <div class="method-grid">
+      <div class="method-item reveal">
+        <span class="num">01</span>
+        <h3>Consulta completa</h3>
+        <p>Online ou presencial em Sinop. Entendemos sua rotina, histórico, hábitos e objetivos para construir a estratégia certa para você.</p>
+      </div>
+      <div class="method-item reveal">
+        <span class="num">02</span>
+        <h3>Plano alimentar adaptado</h3>
+        <p>Nada engessado ou impossível de seguir. Um plano que acompanha sua rotina, trabalho e vida social — com prazer em comer.</p>
+      </div>
+      <div class="method-item reveal">
+        <span class="num">03</span>
+        <h3>Avaliação + suplementação</h3>
+        <p>Avaliação física, análise de exames e suplementação individualizada, pensadas para acelerar seus resultados com segurança.</p>
+      </div>
+      <div class="method-item reveal">
+        <span class="num">04</span>
+        <h3>Suporte contínuo</h3>
+        <p>Aplicativo exclusivo com seu plano e suporte direto comigo pelo WhatsApp. Ajustes constantes para você nunca mais se sentir sozinha no processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PARA QUEM É ============ -->
+<section id="para-quem">
+  <div class="container">
+    <span class="section-label reveal">Esse acompanhamento é para você, se...</span>
+    <h2 class="section-title reveal">Você quer resultado de verdade, sem viver de dieta restritiva.</h2>
+
+    <div class="fit-list">
+      <div class="fit-item reveal">
+        <span class="fit-check">✓</span>
+        <div>
+          <h3>Vive no "8 ou 80" com a comida</h3>
+          <p>Corta tudo que gosta e depois perde o controle nos momentos de ansiedade.</p>
+        </div>
+      </div>
+      <div class="fit-item reveal">
+        <span class="fit-check">✓</span>
+        <div>
+          <h3>Busca resultado sem abrir mão do prazer</h3>
+          <p>Quer uma alimentação prazerosa e possível dentro da sua rotina.</p>
+        </div>
+      </div>
+      <div class="fit-item reveal">
+        <span class="fit-check">✓</span>
+        <div>
+          <h3>Está sempre recomeçando</h3>
+          <p>E isso te deixa desmotivada, com a sensação de estar sempre no mesmo ciclo.</p>
+        </div>
+      </div>
+      <div class="fit-item reveal">
+        <span class="fit-check">✓</span>
+        <div>
+          <h3>Quer direção e suporte</h3>
+          <p>Um plano que acompanhe sua rotina, trabalho e vida social — com ajustes ao longo do caminho.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="container">
+    <span class="section-label reveal">Pronta para começar?</span>
+    <h2 class="reveal">Sua constância pode — e deve — ter <em>resultado.</em></h2>
+    <p class="reveal">Agende sua consulta e receba um plano feito para a sua vida, não contra ela.</p>
+    <a class="btn reveal" href="https://wa.me/5566992292184?text=Ol%C3%A1%2C%20Kauany!%20Quero%20agendar%20minha%20consulta." target="_blank" rel="noopener">Agendar minha consulta</a>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section id="contato">
+  <div class="container">
+    <span class="section-label reveal">Contato</span>
+    <h2 class="section-title reveal">Vamos conversar sobre o seu objetivo?</h2>
+    <p class="section-sub reveal">Escolha o canal que preferir. Será um prazer te acompanhar.</p>
+
+    <div class="contact-grid">
+      <a class="contact-card reveal" href="https://wa.me/5566992292184" target="_blank" rel="noopener">
+        <div class="icon">✆</div>
+        <h3>WhatsApp</h3>
+        <p>(66) 99229-2184</p>
+      </a>
+      <a class="contact-card reveal" href="mailto:kauanypauli@gmail.com">
+        <div class="icon">✉</div>
+        <h3>E-mail</h3>
+        <p>kauanypauli@gmail.com</p>
+      </a>
+      <a class="contact-card reveal" href="https://instagram.com/kauanypaulinutri" target="_blank" rel="noopener">
+        <div class="icon">◈</div>
+        <h3>Instagram</h3>
+        <p>@kauanypaulinutri</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Kauany Pauli — Nutricionista · Sinop/MT · Todos os direitos reservados
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
