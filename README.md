@@ -1,0 +1,1 @@
+--bg: #FAF7F2;       /* fundo principal */--bg-soft: #F2EDE4;  /* fundo de seções alternadas */--ink: #2B2620;      /* cor do texto */--accent: #7A8B6F;   /* verde-sálvia de destaque */
